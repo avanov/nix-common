@@ -1,6 +1,6 @@
 {
     pkgs                    ? (import ./. {}).pkgs
-,   haskellCompiler         ? "ghc8104"
+,   haskellCompiler         ? "ghc923"
 ,   haskellHackageOverrides ? (self: original: {})  # Project-specific Hackage overrides
 ,   haskellLibraries        ? (hackagePackageSet: with hackagePackageSet; [ ])
 ,   localDevTools           ? (ps: with ps; [ gnumake
