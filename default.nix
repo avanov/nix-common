@@ -13,10 +13,10 @@ let
     nixpkgs-src = builtins.fetchTarball {
          # Descriptive name to make the store path easier to identify
          name   = "nix-common-snapshot";
-         # Commit hash for nixos-unstable as of 2021-04-29
-         url    = https://github.com/NixOS/nixpkgs/archive/79225c623d2f07f095251d3e509cc6a4cee6119e.tar.gz;
+         # Commit hash for nixos-unstable as of 2022-06-11
+         url    = https://github.com/NixOS/nixpkgs/archive/6478045724f2413bf200b8efc687ebe0058ab39e.tar.gz;
          # Hash obtained using `nix-prefetch-url --unpack <url>`
-         sha256 = "02j88v5yyvh1ximdi4wn46mb5vfrl0rdmbmv2mi644gh4wzfn4x3";
+         sha256 = "1mlgd9mj1sik1lxr9sbkbi1wmjnfward8zsh5nr7zkwi0kdy0ky8";
     };
 
 in
