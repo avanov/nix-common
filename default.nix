@@ -1,4 +1,5 @@
-{}:
+{   projectOverlays ? []
+}:
 
 let
     overlay = (self: original: rec {
@@ -22,5 +23,5 @@ let
 in
 
 {
-    pkgs = import nixpkgs-src { overlays = [ overlay ]; };
+    pkgs = import nixpkgs-src { overlays = [ overlay ] ++ projectOverlays; };
 }
