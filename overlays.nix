@@ -12,10 +12,15 @@ postgres-local-management-src = builtins.fetchTarball {
 };
 
 overlays = (self: original: rec {
+
     # Upstream ghcid doesn't expose ghc(i) as a propagated dependency, so we fix it on our side
     ghcid = original.ghcid.overrideAttrs (oldAttrs: {
         propagatedBuildInputs = oldAttrs.propagatedBuildInputs ++ [ original.ghc ];
     });
+
+    haskell-language-server = original.haskell-language-server.override {
+        supportedGhcVersions = [ "943" ];
+    };
 
     postgres-local-management = self.stdenv.mkDerivation {
         name    = "postgres-local-management";

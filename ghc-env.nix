@@ -1,14 +1,14 @@
 {
     pkgs                    ? (import ./. {}).pkgs
-,   haskellCompiler         ? "ghc923"
+,   haskellCompiler         ? "ghc943"
 ,   haskellHackageOverrides ? (self: original: {})  # Project-specific Hackage overrides
 ,   haskellLibraries        ? (hackagePackageSet: with hackagePackageSet; [ ])
-,   localDevTools           ? (ps: with ps; [ gnumake
-                                                  gitAndTools.pre-commit
-                                                  lsof
-                                                  which
-                                                  libiconv  # required for building Cabal
-                                                  cabal2nix ])
+,   localDevTools           ? (ps: with ps; [   gnumake
+                                                gitAndTools.pre-commit
+                                                lsof
+                                                which
+                                                libiconv  # required for building Cabal
+                                                cabal2nix ])
 
 
 }:
