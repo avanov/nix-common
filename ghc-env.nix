@@ -1,6 +1,7 @@
-{
-    pkgs                    ? (import ./. {}).pkgs
-,   haskellCompiler         ? "ghc943"
+{   haskellCompiler         # "ghc943" etc
+,   isHaskellWithGMP        # true / false
+,   pkgs                    # global nixpkgs set
+
 ,   haskellHackageOverrides ? (self: original: {})  # Project-specific Hackage overrides
 ,   haskellLibraries        ? (hackagePackageSet: with hackagePackageSet; [ ])
 ,   localDevTools           ? (ps: with ps; [   gnumake
@@ -14,8 +15,13 @@
 }:
 
 let
-    ghcVariant             = pkgs.haskell.packages;
-    ghcPkgSetWithOverrides = ghcVariant.${haskellCompiler}.override {
+    ghcEdition       =  if   isHaskellWithGMP
+                        then pkgs.haskell.packages
+                        else pkgs.haskell.packages.native-bignum;
+
+    haskellNamespace       = ghcEdition.${haskellCompiler};
+
+    ghcPkgSetWithOverrides = haskellNamespace.override {
         overrides = self: original: {
             # not yet
         } // haskellHackageOverrides self original;  # apply (union) project-specific Hackage overrides after global overrides
