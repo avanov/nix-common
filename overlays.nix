@@ -1,7 +1,9 @@
 #
 # Place global overrides and extra derivations here as described in https://nixos.wiki/wiki/Overlays#Examples_of_overlays
 #
-{}:
+{
+    supportedGhcVersions ? [ "944" ]
+}:
 
 let
 
@@ -19,7 +21,7 @@ overlays = (self: original: rec {
     });
 
     haskell-language-server = original.haskell-language-server.override {
-        supportedGhcVersions = [ "943" ];
+        supportedGhcVersions = supportedGhcVersions;
     };
 
     postgres-local-management = self.stdenv.mkDerivation {

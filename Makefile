@@ -7,5 +7,5 @@ PROJECT_ROOT            := $(PROJECT_MKFILE_DIR)
 
 .PHONY: test
 test:
-	nix-build $(PROJECT_ROOT)/test.nix -A testShell --argstr haskellCompiler ghc944 --no-out-link
+	nix-build $(PROJECT_ROOT)/test.nix -A testShell --argstr haskellVersion 944 --no-out-link
 
