@@ -1,7 +1,10 @@
+{   haskellCompiler
+}:
+
 let
 
 pkgs    = (import ./. {}).pkgs;
-ghcEnv  = (import ./ghc-env.nix { pkgs = pkgs; haskellCompiler = "ghc943"; isHaskellWithGMP = false; });
+ghcEnv  = (import ./ghc-env.nix { pkgs = pkgs; haskellCompiler = haskellCompiler; isHaskellWithGMP = false; });
 
 
 testShell = pkgs.mkShellNoCC {
