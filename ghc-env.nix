@@ -37,5 +37,6 @@ in
 {
     inherit pkgs;
     inherit ghc;
+    inherit haskellNamespace;
     localTooling = [ ghc ] ++ (localDevTools pkgs);
 }
