@@ -22,9 +22,7 @@ let
     haskellNamespace       = ghcEdition.${haskellCompiler};
 
     ghcPkgSetWithOverrides = haskellNamespace.override {
-        overrides = self: original: {
-            # not yet
-        } // haskellHackageOverrides self original;  # apply (union) project-specific Hackage overrides after global overrides
+        overrides = haskellHackageOverrides;
     };
 
     # `ghc` is a derivation that contains GHC + required project libraries,
