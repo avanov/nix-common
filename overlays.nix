@@ -9,8 +9,8 @@ let
 
 postgres-local-management-src = builtins.fetchTarball {
     name   = "postgres-local-management-src";
-    url    = https://github.com/avanov/postgres-local-management/archive/f8d96a5751176990512a602d1f9bffdc9ee0334a.tar.gz;
-    sha256 = "sha256:105kzq3dprzdmbi0d3nr3p3wx45vv4k3smf2y17bh01nwy65a3ld";
+    url    = https://github.com/avanov/postgres-local-management/archive/2d3e363543644482f70f287a8606b8d73233cca7.tar.gz;
+    sha256 = "sha256:13w9wvwk77qw8g4y5y1ips7yddji5abqqd9yrkypv8jpr19bldp1";
 };
 
 overlays = (self: original: rec {
