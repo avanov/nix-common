@@ -29,7 +29,7 @@ overlays = (self: original: rec {
         src     = postgres-local-management-src;
         builder = "${self.bash}/bin/bash";
         args    = [
-            (self.writeScript "wait-for-builder"
+            (self.writeScript "postgres-local-management-builder"
                 ''
                     source $stdenv/setup
                     install -d $out/
