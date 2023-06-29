@@ -2,7 +2,7 @@
 # Place global overrides and extra derivations here as described in https://nixos.wiki/wiki/Overlays#Examples_of_overlays
 #
 {
-    supportedGhcVersions ? [ "944" ]
+    supportedGhcVersions ? [ "962" ]
 }:
 
 let
@@ -27,7 +27,6 @@ overlays = (self: original: rec {
     postgres-local-management = self.stdenv.mkDerivation {
         name    = "postgres-local-management";
         src     = postgres-local-management-src;
-        wget    = self.wget;
         builder = "${self.bash}/bin/bash";
         args    = [
             (self.writeScript "wait-for-builder"

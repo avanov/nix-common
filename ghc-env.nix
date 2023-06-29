@@ -1,4 +1,4 @@
-{   haskellCompiler         # "ghc944" etc
+{   haskellCompiler         # "ghc962" etc
 ,   isHaskellWithGMP        # true / false
 ,   pkgs                    # global nixpkgs set
 
@@ -10,8 +10,6 @@
                                                 which
                                                 libiconv  # required for building Cabal
                                                 cabal2nix ])
-
-
 }:
 
 let
@@ -19,7 +17,7 @@ let
                         then pkgs.haskell.packages
                         else pkgs.haskell.packages.native-bignum;
 
-    haskellNamespace       = ghcEdition.${haskellCompiler};
+    haskellNamespace = ghcEdition.${haskellCompiler};
 
     ghcPkgSetWithOverrides = haskellNamespace.override {
         overrides = haskellHackageOverrides;
@@ -30,11 +28,23 @@ let
     # that represents our Haskell project with all its dependencies
     ghc = ghcPkgSetWithOverrides.ghcWithPackages haskellLibraries;
 
+    hsLib = pkgs.haskell.lib;
+    # see : https://github.com/NixOS/nixpkgs/issues/208812
+#    ghcjs = (pkgs.haskell.packages.ghcjs.override {
+#        overrides = self: original: rec {
+#            #exceptions = original.exceptions_0_10_7;
+#            directory = original.directory_1_3_8_1;
+#            directory_1_3_7_1 = null;
+#        };
+#    }).ghcWithPackages (ps: with ps; [ cabal-install ]);
+    ghcjs = pkgs.haskell.compiler.ghcjs;
+
 in
 
 {
     inherit pkgs;
     inherit ghc;
+    inherit ghcjs;
     inherit ghcPkgSetWithOverrides;
     inherit haskellNamespace;
     localTooling = [ ghc ] ++ (localDevTools pkgs);

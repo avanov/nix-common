@@ -3,9 +3,10 @@
 PROJECT_MKFILE_PATH     := $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
 PROJECT_MKFILE_DIR      := $(shell cd $(shell dirname $(PROJECT_MKFILE_PATH)); pwd)
 
-PROJECT_ROOT            := $(PROJECT_MKFILE_DIR)
+PROJECT_ROOT			:= $(PROJECT_MKFILE_DIR)
+HASKELL_VERSION			:= 962
 
 .PHONY: test
 test:
-	nix-build $(PROJECT_ROOT)/test.nix -A testShell --argstr haskellVersion 944 --no-out-link
+	nix-build $(PROJECT_ROOT)/test.nix -A testShell --argstr haskellVersion $(HASKELL_VERSION) --no-out-link
 

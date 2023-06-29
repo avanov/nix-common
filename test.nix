@@ -11,7 +11,7 @@ testShell = pkgs.mkShellNoCC {
     # Sets the build inputs, i.e. what will be available in our
     # local environment.
     nativeBuildInputs
-        = with pkgs; [  haskell-language-server ]
+        = with pkgs; [  haskell-language-server ghcEnv.ghcjs]
         ++ ghcEnv.localTooling;
 };
 
