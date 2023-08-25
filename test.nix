@@ -3,7 +3,7 @@
 
 let
 
-pkgs    = (import ./. {}).pkgs;
+pkgs    = (import ./. { supportedGhcVersions = ["${haskellVersion}"]; }).pkgs;
 ghcEnv  = (import ./ghc-env.nix { pkgs = pkgs; haskellCompiler = "ghc${haskellVersion}"; isHaskellWithGMP = false; });
 
 

@@ -1,11 +1,11 @@
-{   haskellCompiler         # "ghc962" etc
+{   haskellCompiler         # "ghc946" etc
 ,   isHaskellWithGMP        # true / false
 ,   pkgs                    # global nixpkgs set
 
 ,   haskellHackageOverrides ? (self: original: {})  # Project-specific Hackage overrides
 ,   haskellLibraries        ? (hackagePackageSet: with hackagePackageSet; [ ])
 ,   localDevTools           ? (ps: with ps; [   gnumake
-                                                gitAndTools.pre-commit
+                                                pre-commit
                                                 lsof
                                                 which
                                                 libiconv  # required for building Cabal

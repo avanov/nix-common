@@ -2,7 +2,7 @@
 # Place global overrides and extra derivations here as described in https://nixos.wiki/wiki/Overlays#Examples_of_overlays
 #
 {
-    supportedGhcVersions ? [ "962" ]
+    supportedGhcVersions
 }:
 
 let
