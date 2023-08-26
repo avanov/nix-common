@@ -4,7 +4,12 @@
 let
 
 pkgs    = (import ./. { supportedGhcVersions = ["${haskellVersion}"]; }).pkgs;
-ghcEnv  = (import ./ghc-env.nix { pkgs = pkgs; haskellCompiler = "ghc${haskellVersion}"; isHaskellWithGMP = false; });
+ghcEnv  = (import ./ghc-env.nix
+    {   pkgs = pkgs;
+        haskellCompiler = "ghc${haskellVersion}";
+        isHaskellWithGMP = false;
+        haskellHackageOverrides = (callCabal2Nix: self: original: {});
+    });
 
 
 testShell = pkgs.mkShellNoCC {

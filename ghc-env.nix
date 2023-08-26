@@ -2,7 +2,9 @@
 ,   isHaskellWithGMP        # true / false
 ,   pkgs                    # global nixpkgs set
 
-,   haskellHackageOverrides ? (self: original: {})  # Project-specific Hackage overrides
+    # Project-specific Hackage overrides, callCabal2Nix is provided as a means to build new packages and make them part
+    # of the same Haskell package set as the original one
+,   haskellHackageOverrides ? (callCabal2Nix: self: original: {})
 ,   haskellLibraries        ? (hackagePackageSet: with hackagePackageSet; [ ])
 ,   localDevTools           ? (ps: with ps; [   gnumake
                                                 pre-commit
@@ -20,7 +22,7 @@ let
     haskellNamespace = ghcEdition.${haskellCompiler};
 
     ghcPkgSetWithOverrides = haskellNamespace.override {
-        overrides = haskellHackageOverrides;
+        overrides = (haskellHackageOverrides haskellNamespace.callCabal2Nix);
     };
 
     # `ghc` is a derivation that contains GHC + required project libraries,
