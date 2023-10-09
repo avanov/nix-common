@@ -8,7 +8,7 @@ ghcEnv  = (import ./ghc-env.nix
     {   pkgs = pkgs;
         haskellCompiler = "ghc${haskellVersion}";
         isHaskellWithGMP = false;
-        haskellHackageOverrides = (callCabal2Nix: self: original: {});
+        haskellHackageOverrides = (self: original: {});
     });
 
 

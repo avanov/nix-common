@@ -1,4 +1,4 @@
-{   haskellCompiler         # "ghc946" etc
+{   haskellCompiler         # "ghc963" etc
 ,   isHaskellWithGMP        # true / false
 ,   pkgs                    # global nixpkgs set
 
