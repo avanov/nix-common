@@ -17,4 +17,5 @@ in
 
 {
     pkgs = import nixpkgs-src { overlays = [ commonOverlays ] ++ projectOverlays; };
+    inherit nixpkgs-src;
 }
