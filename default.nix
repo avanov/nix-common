@@ -5,10 +5,10 @@
 let
     nixpkgs-src = builtins.fetchTarball {
          # Descriptive name to make the store path easier to identify
-         name   = "nix-common-snapshot-2023-03-02";
-         url    = https://github.com/NixOS/nixpkgs/archive/458b097d81f90275b3fdf03796f0563844926708.tar.gz;
+         name   = "nix-common-snapshot-2023-03-10";
+         url    = https://github.com/NixOS/nixpkgs/archive/db339f1706f555794b71aa4eb26a5a240fb6a599.tar.gz;
          # Hash obtained using `nix-prefetch-url --unpack <url>`
-         sha256 = "sha256:1vpbqcdn0a2j20l84bp0fsxk8fc13kf0b04yf7s47djvna545z4s";
+         sha256 = "sha256:0fph9npjb4gm391qwfp7i8yrvnbzl3slv50smjxhasyx29mf9vkc";
     };
 
     commonOverlays = (import ./overlays.nix { inherit supportedGhcVersions; }).overlays;
