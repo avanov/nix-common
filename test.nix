@@ -9,6 +9,11 @@ ghcEnv  = (import ./ghc-env.nix
         haskellCompiler = "ghc${haskellVersion}";
         isHaskellWithGMP = false;
         haskellHackageOverrides = (self: original: {});
+        haskellLibraries = hackagePkgs: with hackagePkgs; [
+            # if hls is built from toplevel pkgs, it has to match the version of the project's GHC, otherwise VSCode plugin would complain
+            # on version mismatch.
+            haskell-language-server
+        ];
     });
 
 
@@ -16,13 +21,11 @@ testShell = pkgs.mkShellNoCC {
     # Sets the build inputs, i.e. what will be available in our
     # local environment.
     nativeBuildInputs
-        = with pkgs; [  haskell-language-server ghcEnv.ghcjs]
+        = with pkgs; [ ghcEnv.ghcjs]
         ++ ghcEnv.localTooling;
 };
 
 in
-
-
 
 {
     inherit testShell;
