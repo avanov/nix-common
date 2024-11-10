@@ -21,12 +21,18 @@ testShell = pkgs.mkShellNoCC {
     # Sets the build inputs, i.e. what will be available in our
     # local environment.
     nativeBuildInputs
-        = with pkgs; [ ghcEnv.ghcjs]
+        = with pkgs; [ ghcEnv.ghcjs ]
         ++ ghcEnv.localTooling;
 };
+
+
+pythonTestShell = pkgs.mkShell
+    {   buildInputs = with pkgs; [ python313 python312 ];
+    };
 
 in
 
 {
     inherit testShell;
+    inherit pythonTestShell;
 }

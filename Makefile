@@ -15,3 +15,12 @@ test:
 		--show-trace								\
 		-j 5
 
+
+.PHONY: test-py
+test-py:
+	nix-build $(PROJECT_ROOT)/test.nix				\
+		-A pythonTestShell							\
+		--argstr haskellVersion $(HASKELL_VERSION)	\
+		--no-out-link								\
+		--show-trace								\
+		-j 5
