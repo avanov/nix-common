@@ -6,9 +6,9 @@ let
     nixpkgs-src = builtins.fetchTarball {
          # Descriptive name to make the store path easier to identify
          name   = "nix-common-snapshot-2025-06-15";
-         url    = https://github.com/NixOS/nixpkgs/archive/41da1e3ea8e23e094e5e3eeb1e6b830468a7399e.tar.gz;
+         url    = https://github.com/NixOS/nixpkgs/archive/6cae4972a7405bac89f5eb06b7658ef76bb626e6.tar.gz;
          # Hash obtained using `nix-prefetch-url --unpack <url>`
-         sha256 = "sha256:0c30r57ycw3zvp99mq1cclnacxsqbj0667ww6nq14wf1zki077cf";
+         sha256 = "sha256:0drc9jayrvlk4y9g5lddnk5wvihdv3rx4fknqf0dcki0vw6ndyks";
     };
 
     commonOverlays = (import ./overlays.nix { inherit supportedGhcVersions; }).overlays;
