@@ -27,7 +27,7 @@ testShell = pkgs.mkShellNoCC {
 
 
 pythonTestShell = pkgs.mkShell
-    {   buildInputs = with pkgs; [ python313 python312 ];
+    {   buildInputs = with pkgs; [ python313 ];
     };
 
 in

@@ -10,7 +10,7 @@
                                                 pre-commit
                                                 lsof
                                                 which
-                                                libiconv  # required for building Cabal
+                                                #libiconv  # required for building Cabal
                                                 cabal2nix ])
 }:
 
@@ -23,9 +23,9 @@ let
 
     ghcPkgSetWithOverrides = haskellNamespace.override {
         overrides = (self: original: (haskellHackageOverrides {
-            ghcide = self.callHackageDirect
-                { pkg = "ghcide"; ver =  "2.7.0.0"; sha256 = "sha256-vqghYQAim0N0Ih7U6qdi6iAE7WeGMa07AlrZ9JUVwKM="; }
-                {};
+            # ghcide = self.callHackageDirect
+            #     { pkg = "ghcide"; ver =  "2.7.0.0"; sha256 = "sha256-vqghYQAim0N0Ih7U6qdi6iAE7WeGMa07AlrZ9JUVwKM="; }
+            #     {};
         } original));
     };
 
