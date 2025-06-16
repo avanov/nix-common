@@ -21,7 +21,7 @@ testShell = pkgs.mkShellNoCC {
     # Sets the build inputs, i.e. what will be available in our
     # local environment.
     nativeBuildInputs
-        = with pkgs; [ ghcEnv.ghcjs ]
+        = with pkgs; [ ghcEnv.ghc ]
         ++ ghcEnv.localTooling;
 };
 

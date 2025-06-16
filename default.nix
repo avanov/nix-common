@@ -1,5 +1,5 @@
 {   projectOverlays ? []
-,   supportedGhcVersions ? [ "9122" ]
+,   supportedGhcVersions ? [ "9102" ]
 }:
 
 let
