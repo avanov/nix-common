@@ -4,7 +4,7 @@ PROJECT_MKFILE_PATH     := $(word $(words $(MAKEFILE_LIST)),$(MAKEFILE_LIST))
 PROJECT_MKFILE_DIR      := $(shell cd $(shell dirname $(PROJECT_MKFILE_PATH)); pwd)
 
 PROJECT_ROOT			:= $(PROJECT_MKFILE_DIR)
-HASKELL_VERSION			:= 9102
+HASKELL_VERSION			:= 9122
 
 .PHONY: test
 test:

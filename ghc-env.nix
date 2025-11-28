@@ -30,26 +30,26 @@ let
                 #     {};
 
                 # GHC 9.10: Remove in the next release
-                ghc-lib-parser = hsLib.overrideCabal original.ghc-lib-parser (old: rec {
-                                    version = "9.10.2.20250515";
-                                    sha256 = "sha256-azfFNPLyVoXe+PRdtesbK8/QEvcLEAkM07aZVEx9nPI=";
-                                    editedCabalFile = null;
-                                    });
-                stylish-haskell = hsLib.overrideCabal original.stylish-haskell (old: rec {
-                                    version = "0.15.0.1";
-                                    sha256 = "sha256-JS9/jqRSTOUl1RO00l5tMY0eEt3o+8hOLFVMdcJ5VQs=";
-                                    editedCabalFile = null;
-                                    });
-                ghcide = hsLib.doJailbreak (hsLib.overrideCabal original.ghcide (old: rec {
-                                    version = "2.11.0.0";
-                                    sha256 = "sha256-eotElZC4ykz6gMKKSqidmKdYZ+M7thscMR7x3g3cOTU=";
-                                    editedCabalFile = null;
-                                    }));
-                hls-test-utils = hsLib.doJailbreak original.hls-test-utils;
-                haskell-language-server = hsLib.doJailbreak original.haskell-language-server;
+                # ghc-lib-parser = hsLib.overrideCabal original.ghc-lib-parser (old: rec {
+                #                     version = "9.10.2.20250515";
+                #                     sha256 = "sha256-azfFNPLyVoXe+PRdtesbK8/QEvcLEAkM07aZVEx9nPI=";
+                #                     editedCabalFile = null;
+                #                     });
+                # stylish-haskell = hsLib.overrideCabal original.stylish-haskell (old: rec {
+                #                     version = "0.15.0.1";
+                #                     sha256 = "sha256-JS9/jqRSTOUl1RO00l5tMY0eEt3o+8hOLFVMdcJ5VQs=";
+                #                     editedCabalFile = null;
+                #                     });
+                # ghcide = hsLib.doJailbreak (hsLib.overrideCabal original.ghcide (old: rec {
+                #                     version = "2.11.0.0";
+                #                     sha256 = "sha256-eotElZC4ykz6gMKKSqidmKdYZ+M7thscMR7x3g3cOTU=";
+                #                     editedCabalFile = null;
+                #                     }));
+                # hls-test-utils = hsLib.doJailbreak original.hls-test-utils;
+                # haskell-language-server = hsLib.doJailbreak original.haskell-language-server;
 
                 # saves significant build time
-                scientific = hsLib.dontCheck original.scientific;
+                # scientific = hsLib.dontCheck original.scientific;
             });
 
     ghcPkgSetWithOverrides = haskellNamespace.override {

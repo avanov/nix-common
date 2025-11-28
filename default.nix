@@ -1,14 +1,14 @@
 {   projectOverlays ? []
-,   supportedGhcVersions ? [ "9102" ]
+,   supportedGhcVersions ? [ "9122" ]
 }:
 
 let
     nixpkgs-src = builtins.fetchTarball {
          # Descriptive name to make the store path easier to identify
-         name   = "nix-common-snapshot-2025-06-15";
-         url    = https://github.com/NixOS/nixpkgs/archive/6cae4972a7405bac89f5eb06b7658ef76bb626e6.tar.gz;
+         name   = "nix-common-snapshot-2025-11-28";
+         url    = https://github.com/NixOS/nixpkgs/archive/0d59e0290eefe0f12512043842d7096c4070f30e.tar.gz;
          # Hash obtained using `nix-prefetch-url --unpack <url>`
-         sha256 = "sha256:0drc9jayrvlk4y9g5lddnk5wvihdv3rx4fknqf0dcki0vw6ndyks";
+         sha256 = "sha256:04a03ffnjc2y22460n01djgvqgkrnmm02kqhrlzpd3wwjjbz3bb7";
     };
 
     commonOverlays = (import ./overlays.nix { inherit supportedGhcVersions; }).overlays;
