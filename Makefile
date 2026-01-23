@@ -24,3 +24,7 @@ test-py:
 		--no-out-link								\
 		--show-trace								\
 		-j 5
+
+
+.PHONY: fulltest
+fulltest: test test-py
